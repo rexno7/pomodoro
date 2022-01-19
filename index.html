@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="pomodoro.js"></script>
+  </head>
+
+  <body onload="preLoad()">
+    <div id="positive-message">Focus Up!</div>
+    <div id="timer-module">
+      <button type="button" id="timer"></button>
+      <!-- <button type="button" onclick="stopTimer()">Stop</button> -->
+      <div id="controls">
+        <img id="start-btn" src="assets/play_button.png" onclick="startTimer()"/>
+        <img id="stop-btn" src="assets/stop_button.png" onclick="stopTimer()"/>
+      </div>
+    </div>
+  </body>
+</html>
