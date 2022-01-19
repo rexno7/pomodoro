@@ -5,6 +5,7 @@ let interval;
 let startDate;
 let timerLengths;
 let messages;
+let titles;
 
 // Timer Lengths
 let pomodoroLength;
@@ -24,13 +25,16 @@ const preLoad = () => {
   timerLengths = [25 * 60, 5 * 60, 15 * 60];
   pomodoros = 0;
   state = 0;
-  messages = ["Focus Up!", "Short Break!", "Good Job! Enjoy the long break!"]
+  messages = ["Focus Up!", "Short Break!", "Good Job! Enjoy the long break!"];
+  titles = ["Pomodoro Time!", "Short Break!", "Long Break!"];
   
-  // Document Objects
+  // Init Document
   timer = document.getElementById("timer");
   positiveMessage = document.getElementById("positive-message");
+  document.title = document.title = 
+        `${numberToTime(timerLengths[state])} - ${titles[state]}`;
 
-  // Fil Timer
+  // Fill Timer
   initPomodoro();
   startDate = Date.now();
 }
@@ -38,9 +42,11 @@ const preLoad = () => {
 const changeTimerType = () => {
   state = (state + 1) % 3;
   positiveMessage.innerHTML = messages[state];
-  if (state == 0) { initPomodoro(); }
-  if (state == 1) { initShortBreak(); }
-  if (state == 2) { initLongBreak();}
+  document.title = document.title = 
+        `${numberToTime(timerLengths[state])} - ${titles[state]}`;
+  if (state == 0) { initPomodoro() }
+  if (state == 1) { initShortBreak() }
+  if (state == 2) { initLongBreak() }
   stopTimer();
 }
 
@@ -62,11 +68,13 @@ const initLongBreak = () => {
 const myTimer = () => {
   const delta = timerLengths[state] - Math.floor((Date.now() - startDate) / 1000);
   if (delta <= 0) {
-    play();
+    playAlarm();
     stopTimer();
   }
   var timer = document.getElementById("timer");
   timer.innerHTML = numberToTime(delta);
+  document.title = document.title = 
+        `${numberToTime(delta)} - ${titles[state]}`;
 }
 
 // TODO: Fix bug where timer doesn't update here 
@@ -92,7 +100,7 @@ const numberToTime = (num) => {
   return min + ":" + sec;
 }
 
-const play = () => {   
+const playAlarm = () => {   
   var beepsound = new Audio("assets/Alarm03.wav");   
   beepsound.play();
 }
