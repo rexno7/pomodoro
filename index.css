@@ -1,7 +1,4 @@
 body {
-  /* background-color: #49ad64; */
-  /* background-color: #d95550;
-  background-color: #605E85; */
   display: grid;
   justify-content: center;
   grid-template-rows: 3fr 4fr;
@@ -16,7 +13,7 @@ body {
   margin-bottom: .5em;
 }
 #timer-module {
-  background-color: #68bb7e;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 20px 60px;
   border-radius: 10px;
   display: grid;
@@ -40,22 +37,4 @@ body {
 }
 #controls img {
   padding: 0em 1em;
-}
-.pomodoro {
-  background-color: #49ad64;
-}
-.pomodoro #timer-module {
-  background-color: #68bb7e;
-}
-.short-break {
-  background-color: #d95550;
-}
-.short-break #timer-module {
-  background-color: #dd6662;
-}
-.long-break {
-  background-color: #605E85;
-}
-.long-break #timer-module {
-  background-color: #7d7c91;
 }

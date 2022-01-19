@@ -1,0 +1,16 @@
+.green {
+  background-color: #3d9d57;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.red {
+  background-color: #d95550;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.purple {
+  background-color: #605E85;
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.blue {
+  background-color: #4c9195;
+  transition: background-color 0.5s ease-in-out 0s;
+}

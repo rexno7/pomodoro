@@ -46,17 +46,17 @@ const changeTimerType = () => {
 
 const initPomodoro = () => {
   timer.innerHTML = numberToTime(timerLengths[state]);
-  document.body.setAttribute("class", "pomodoro");
+  document.body.setAttribute("class", "purple");
 }
 
 const initShortBreak = () => {
   timer.innerHTML = numberToTime(timerLengths[state]);
-  document.body.setAttribute("class", "short-break");
+  document.body.setAttribute("class", "green");
 }
 
 const initLongBreak = () => {
   timer.innerHTML = numberToTime(timerLengths[state]);
-  document.body.setAttribute("class", "long-break");
+  document.body.setAttribute("class", "blue");
 }
 
 const myTimer = () => {
