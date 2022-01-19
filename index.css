@@ -1,16 +1,16 @@
 body {
-  background-color: #49ad64;
+  /* background-color: #49ad64; */
   /* background-color: #d95550;
   background-color: #605E85; */
   display: grid;
   justify-content: center;
   grid-template-rows: 3fr 4fr;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #positive-message {
   color: #e8e8e8;
   font-size: 4em;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   align-self: end;
   margin-bottom: .5em;
@@ -31,6 +31,7 @@ body {
   font-size: 7.5em;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }
 #controls {
   justify-self: center;
@@ -39,4 +40,22 @@ body {
 }
 #controls img {
   padding: 0em 1em;
+}
+.pomodoro {
+  background-color: #49ad64;
+}
+.pomodoro #timer-module {
+  background-color: #68bb7e;
+}
+.short-break {
+  background-color: #d95550;
+}
+.short-break #timer-module {
+  background-color: #dd6662;
+}
+.long-break {
+  background-color: #605E85;
+}
+.long-break #timer-module {
+  background-color: #7d7c91;
 }

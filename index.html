@@ -7,11 +7,10 @@
     <script type="text/javascript" src="pomodoro.js"></script>
   </head>
 
-  <body onload="preLoad()">
+  <body class="pomodoro" onload="preLoad()">
     <div id="positive-message">Focus Up!</div>
     <div id="timer-module">
-      <button type="button" id="timer"></button>
-      <!-- <button type="button" onclick="stopTimer()">Stop</button> -->
+      <button type="button" id="timer" onclick="changeTimerType()"></button>
       <div id="controls">
         <img id="start-btn" src="assets/play_button.png" onclick="startTimer()"/>
         <img id="stop-btn" src="assets/stop_button.png" onclick="stopTimer()"/>

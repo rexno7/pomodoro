@@ -1,20 +1,66 @@
+// Timer
 let interval;
+
+// Values
 let startDate;
-let initTimerValue;
+let timerLengths;
+let messages;
+
+// Timer Lengths
+let pomodoroLength;
+let shortBreakLength;
+let longBreakLength;
+
+// Document Objects
 let timer;
+let positiveMessage;
+
+// State Values
 let pomodoros;
+let state;
 
 const preLoad = () => {
-  initTimerValue = 25 * 60;
-  timerRunning = false;
+  // Init values
+  timerLengths = [25 * 60, 5 * 60, 15 * 60];
   pomodoros = 0;
+  state = 0;
+  messages = ["Focus Up!", "Short Break!", "Good Job! Enjoy the long break!"]
+  
+  // Document Objects
   timer = document.getElementById("timer");
-  timer.innerHTML = numberToTime(initTimerValue);
+  positiveMessage = document.getElementById("positive-message");
+
+  // Fil Timer
+  initPomodoro();
   startDate = Date.now();
 }
 
+const changeTimerType = () => {
+  state = (state + 1) % 3;
+  positiveMessage.innerHTML = messages[state];
+  if (state == 0) { initPomodoro(); }
+  if (state == 1) { initShortBreak(); }
+  if (state == 2) { initLongBreak();}
+  stopTimer();
+}
+
+const initPomodoro = () => {
+  timer.innerHTML = numberToTime(timerLengths[state]);
+  document.body.setAttribute("class", "pomodoro");
+}
+
+const initShortBreak = () => {
+  timer.innerHTML = numberToTime(timerLengths[state]);
+  document.body.setAttribute("class", "short-break");
+}
+
+const initLongBreak = () => {
+  timer.innerHTML = numberToTime(timerLengths[state]);
+  document.body.setAttribute("class", "long-break");
+}
+
 const myTimer = () => {
-  const delta = initTimerValue - Math.floor((Date.now() - startDate) / 1000);
+  const delta = timerLengths[state] - Math.floor((Date.now() - startDate) / 1000);
   if (delta <= 0) {
     play();
     stopTimer();
@@ -23,10 +69,12 @@ const myTimer = () => {
   timer.innerHTML = numberToTime(delta);
 }
 
+// TODO: Fix bug where timer doesn't update here 
+//       (probably race condition with interval and timer update)
 const stopTimer = () => {
   clearInterval(interval);
   document.getElementById("start-btn").setAttribute("src", "assets/play_button.png");
-  timer.innerHTML = numberToTime(initTimerValue);
+  timer.innerHTML = numberToTime(timerLengths[state]);
 }
 
 const startTimer = () => {
